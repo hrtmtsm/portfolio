@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <title>Haruto Matsushima</title>
+      <link rel="stylesheet" href="css/main.css" />
+   </head>
+   <body>
+      <div class="custom-cursor">
+         <span class="cursor-label">view</span>
+      </div>
+      <section class="hero" id="hero-bg">
+         <nav class="navbar">
+            <div class="logo">
+               <a href="#" class="text-decoration-none text-reset">HARUTO MATSUSHIMA</a>
+            </div>
+            <ul class="nav-links">
+               <li><a href="../index.html">Work</a></li>
+               <li><a href="https://drive.google.com/file/d/1jdoFk3raaQkHINkoOx7OOk7Yn8AwUQE9/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+               <li><a href="https://www.linkedin.com/in/hrtmtsm/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+         </nav>
+         <div class="hero-content text-center">
+            <p class="subheading fw-semibold text-uppercase letter-spacing-sm mb-2">Product Designer</p>
+            <h1 class="display-4 fw-bold mb-3">Hi, I'm Haruto</h1>
+            <p class="description  text-muted mx-auto" style="max-width: 700px;">
+               A user-centered product designer with a background in iOS development and law.  
+               Originally from Japan and currently based in Chicago, I create with both logic and empathy.
+            </p>
+            <p  class="description  text-muted mx-auto" style="max-width: 700px;">
+               HCI grad student @ DePaul CDM
+            </p>
+         </div>
+         <a href="#projects" class="scroll-down">
+         <span class="chevron-wrapper">
+         <span class="chevron"></span>
+         </span>
+         </a>
+      </section>
+      <section id="projects" class="projects">
+         <div class="project-card">
+            <div class="project-image">
+               <div class="image-wrapper">
+                  <img src="images/Iowa-cover.png" alt="Fitbit Project Image" />
+               </div>
+            </div>
+            <div class="project-content">
+               <p class="project-role">UX Research School Project</p>
+               <h2>Improving Usability on the Iowa Cubs Website Through Testing & Evaluation</h2>
+               <div class="tags">
+                  <span>UX Research</span>
+                  <span>Usability Testing</span>
+               </div>
+               <p class="project-desc">
+                  A usability-focused redesign of the Iowa Cubs website to improve user experience across tickets, stats, and merchandise.
+               </p>
+               <a href="./projects/project-1.html" class="view-project">View Project →</a>
+            </div>
+         </div>
+      </section>
+      <section id="projects" class="projects">
+         <div class="project-card">
+            <div class="project-image">
+               <div class="image-wrapper">
+                  <img src="images/ventra-cover.png" alt="Fitbit Project Image" />
+               </div>
+            </div>
+            <div class="project-content">
+               <p class="project-role">UX Research School Project</p>
+               <h2>A case study on redesigning Ventra’s website navigation to better support transit riders in Chicago.</h2>
+               <div class="tags">
+                  <span>UX Research</span>
+                  <span>Information Architecture</span>
+                  <span>Content Strategy</span>
+               </div>
+               <p class="project-desc">
+                  A case study on redesigning Ventra’s website navigation to better support transit riders in Chicago.
+               </p>
+               <a href="./projects/project-2.html" class="view-project">View Project →</a>
+            </div>
+         </div>
+      </section>
+      <section id="projects" class="projects">
+         <div class="project-card">
+            <div class="project-image">
+               <div class="image-wrapper">
+                  <img src="images/tripsync-cover.png" alt="Fitbit Project Image" />
+               </div>
+            </div>
+            <div class="project-content">
+               <p class="project-role">User-Centerd Design Project</p>
+               <h2>Making Group Travel Easier—for Planners and Tagalongs Alike</h2>
+               <div class="tags">
+                  <span>Mobile Design</span>
+                  <span>UX Design</span>
+                  <span>HCD Deisgn Process</span>
+               </div>
+               <p class="project-desc">
+                  TripSync helps friends plan group trips with less back-and-forth. It simplifies sharing preferences, organizing itineraries, and keeping everyone on the same page.
+               </p>
+               <a href="./projects/project-3.html" class="view-project">View Project →</a>
+            </div>
+         </div>
+      </section>
+      <footer class="custom-footer">
+         <div class="footer-content">
+            <h2>Glad you made it this far :)</h2>
+            <p>Feel free to reach out for collabs, design chats, or just to say hey — I'm always down to connect!</p>
+            <div class="footer-links">
+               <a href="https://www.linkedin.com/in/hrtmtshm/" target="_blank">LinkedIn</a>
+               <a href="mailto:hrtmtsh@gmail.com">Email</a>
+               <a href="https://drive.google.com/file/d/1jdoFk3raaQkHINkoOx7OOk7Yn8AwUQE9/view?usp=sharing" target="_blank">Resume</a>
+            </div>
+            <p class="footer-note">Designed and coded by Haruto Matsushima</p>
+            <p class="footer-copy">© Haruto Matsushima 2025</p>
+         </div>
+      </footer>
+      </div>
+      <script>
+         const cards = document.querySelectorAll('.project-card');
+         
+         const observer = new IntersectionObserver(entries => {
+           entries.forEach(entry => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add('visible');
+             } else {
+               entry.target.classList.remove('visible');
+             }
+           });
+         }, {
+           threshold: 0.1
+         });
+         
+         cards.forEach(card => {
+           observer.observe(card);
+         });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+      <script>
+         VANTA.NET({
+           el: "#hero-bg",
+           mouseControls: true,
+           touchControls: true,
+           gyroControls: false,
+           minHeight: 200.00,
+           minWidth: 200.00,
+           scale: 1.00,
+           scaleMobile: 1.00,
+           color: 0xc8c8c8,
+           backgroundColor: 0xe6e6e6,
+           spacing: 16.00,
+           showDots: false
+         });
+      </script>
+      <script>
+         const cursor = document.querySelector('.custom-cursor');
+         const clickableElements = document.querySelectorAll('a, button, .view-project');
+         window.addEventListener('mousemove', (e) => {
+           cursor.style.top = `${e.clientY}px`;
+           cursor.style.left = `${e.clientX}px`;
+         });
+         clickableElements.forEach(el => {
+           el.addEventListener('mouseenter', () => {
+             cursor.classList.add('view-mode');
+           });
+           el.addEventListener('mouseleave', () => {
+             cursor.classList.remove('view-mode');
+           });
+         });
+      </script>
+   </body>
+</html>
