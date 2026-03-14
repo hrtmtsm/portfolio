@@ -5,10 +5,28 @@ import { Section, Figure } from "@/components/case/CaseStudyLayout";
 const iowa: CaseDef = {
   slug: "iowa",
   title: "Iowa Cubs Website — Expert Reviews & Usability Testing",
-  subtitle: "USABILITY • SUMMER 2024",
   date: "PROJECT • 2024",
   hero: <img src="/images/iowa-cover.png" alt="Iowa Cubs website hero" />,
-  // NOTE: no `stats` here on purpose (we moved those details into the Overview rows)
+  meta: (
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8">
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Role</div>
+        <div className="text-[15px] text-foreground/80">UX Research, UX Design</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Skills</div>
+        <div className="text-[15px] text-foreground/80">Heuristics, Cog. Walkthrough, Testing, Wireframes</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Context</div>
+        <div className="text-[15px] text-foreground/80">8 weeks • Academic</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Team</div>
+        <div className="text-[15px] text-foreground/80">Ashley Delarm, Karly Greenfield, Clarissa Hyun</div>
+      </div>
+    </div>
+  ),
   toc: [
     { id: "overview", label: "Overview" },
     { id: "process", label: "Process" },
@@ -21,49 +39,21 @@ const iowa: CaseDef = {
   ],
   body: (
     <div className="space-y-12">
-      {/* OVERVIEW — left narrative + right meta rows (no card) */}
       <Section
         id="overview"
         label="PROJECT INTRO"
         heading="Measured usability via expert reviews & user testing"
+        noRule
       >
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Left: narrative */}
-          <div>
-            <p className="mt-1">
-              I evaluated and improved the usability of the Iowa Cubs website, where users were{" "}
-              <strong>struggling to complete core tasks due to unclear labels, hidden steps, and weak feedback.</strong>{" "}
-              We ran expert reviews (heuristics) then usability testing to validate findings and uncover deeper insights.
-              The result was actionable design recommendations that improved navigation clarity and overall UX.
-            </p>
-            <p className="mt-4">
-              I <span className="underline-subtle">contributed by</span> defining data to collect during testing and
-              redesigning key interaction flows based on results.
-            </p>
-          </div>
-
-          {/* Right: meta facts as rows with dividers */}
-          <div className="lg:pl-6">
-            <div className="border-t border-border/70 divide-y divide-border/70">
-              <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-                <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Role</div>
-                <div className="text-[15px] leading-7">UX Research, UX Design</div>
-              </div>
-              <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-                <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Skills</div>
-                <div className="text-[15px] leading-7">Heuristics, Cog. Walkthrough, Testing, Wireframes</div>
-              </div>
-              <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-                <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Context</div>
-                <div className="text-[15px] leading-7">8 weeks • Academic</div>
-              </div>
-              <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-                <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Team</div>
-                <div className="text-[15px] leading-7">Ashley Delarm, Karly Greenfield, Clarissa Hyun</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p>
+          I evaluated and improved the usability of the Iowa Cubs website, where users were{" "}
+          <strong>struggling to complete core tasks due to unclear labels, hidden steps, and weak feedback.</strong>{" "}
+          We ran expert reviews (heuristics) then usability testing to validate findings and uncover deeper insights.
+          The result was actionable design recommendations that improved navigation clarity and overall UX.
+        </p>
+        <p className="mt-4">
+          I contributed by defining data to collect during testing and redesigning key interaction flows based on results.
+        </p>
       </Section>
 
       {/* PROCESS */}

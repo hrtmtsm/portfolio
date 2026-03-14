@@ -8,8 +8,7 @@ export default function Cursor() {
     if (!cursor) return;
 
     const onMove = (e: MouseEvent) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
+      cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
     };
 
     const onEnter = () => cursor.classList.add("view-mode");

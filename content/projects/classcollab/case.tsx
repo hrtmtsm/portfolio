@@ -5,74 +5,58 @@ import { Section, Figure, Overview } from "@/components/case/CaseStudyLayout";
 const classcollab: CaseDef = {
   slug: "classcollab",
   title: "ClassCollab — Compatibility-Based Team Formation",
-  subtitle: "ACADEMIC PROJECT • SPRING 2025",
   date: "PROJECT • 2025",
   hero: <img src="/images/classcollab-cover.png" alt="ClassCollab hero" />,
-  // Note: we intentionally omit `stats` so the header cards don’t render.
+  meta: (
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8">
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Role</div>
+        <div className="text-[15px] text-foreground/80">UX Research, UX/UI Design</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Skills</div>
+        <div className="text-[15px] text-foreground/80">Secondary Research, Prototyping, Validation</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Context</div>
+        <div className="text-[15px] text-foreground/80">8 weeks • Solo</div>
+      </div>
+      <div>
+        <div className="text-[11px] tracking-[0.16em] text-foreground/50 uppercase mb-2">Focus</div>
+        <div className="text-[15px] text-foreground/80">Team formation &amp; fit</div>
+      </div>
+    </div>
+  ),
   toc: [
     { id: "overview", label: "Overview" },
-    { id: "business-problem", label: "Business Problem" },
-    { id: "business-outcomes", label: "Business Outcomes" },
+    { id: "business-problem", label: "Problem & Outcomes" },
     { id: "solution", label: "Solution" },
-    { id: "discover", label: "Discover" },
-    { id: "define", label: "Define" },
-    { id: "validation", label: "Validation Plan" },
+    { id: "discover", label: "Research" },
     { id: "ideate", label: "Ideate" },
-    { id: "prototyping", label: "Prototyping" },
-    { id: "test", label: "Test" },
-    { id: "results", label: "Results" },
+    { id: "prototyping", label: "Prototype & Test" },
     { id: "iterations", label: "Iterations" },
     { id: "reflection", label: "Reflection" },
   ],
   body: (
     <div className="space-y-12">
-      {/* OVERVIEW (intro + facts, row-style facts on the right) */}
-     {/* OVERVIEW (intro + right-side facts in ROW STYLE) */}
-   {/* OVERVIEW — left narrative + right meta rows (no card) */}
 <Section
   id="overview"
   label="PROJECT INTRO"
   heading="Forming compatible student teams for better outcomes"
+  noRule
 >
-  <div className="grid lg:grid-cols-2 gap-10">
-    {/* Left: narrative */}
-    <div>
-      <p>
-        <strong>Students often struggle with mismatched project teams</strong>, which leads to
-        unclear goals, uneven workloads, and poor collaboration. This project tackled that by
-        creating a <strong>smarter team formation process</strong> that matches students based on
-        shared goals, working styles, and availability—while supporting stronger course outcomes
-        for instructors and institutions.
-      </p>
-      <p className="mt-4">
-        Using Lean UX, I ran secondary research, built rapid prototypes, and validated ideas with
-        users over multiple iterations to maximize both <strong>user outcomes</strong> and{" "}
-        <strong>business value</strong>.
-      </p>
-    </div>
-
-    {/* Right: meta facts as rows with dividers */}
-    <div className="lg:pl-6">
-      <div className="border-t border-border/70 divide-y divide-border/70">
-        <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-          <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Role</div>
-          <div className="text-[15px] leading-7">UX Research, UX/UI Design</div>
-        </div>
-        <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-          <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Skills</div>
-          <div className="text-[15px] leading-7">Secondary Research, Prototyping, Validation</div>
-        </div>
-        <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-          <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Context</div>
-          <div className="text-[15px] leading-7">8 weeks • Solo</div>
-        </div>
-        <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-6 py-4">
-          <div className="text-[11px] tracking-[0.16em] text-foreground/60 uppercase">Focus</div>
-          <div className="text-[15px] leading-7">Team formation &amp; fit</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <p>
+    <strong>Students often struggle with mismatched project teams</strong>, which leads to
+    unclear goals, uneven workloads, and poor collaboration. This project tackled that by
+    creating a <strong>smarter team formation process</strong> that matches students based on
+    shared goals, working styles, and availability—while supporting stronger course outcomes
+    for instructors and institutions.
+  </p>
+  <p className="mt-4">
+    Using Lean UX, I ran secondary research, built rapid prototypes, and validated ideas with
+    users over multiple iterations to maximize both <strong>user outcomes</strong> and{" "}
+    <strong>business value</strong>.
+  </p>
 </Section>
 
 
@@ -114,7 +98,7 @@ const classcollab: CaseDef = {
           <strong>collaboration styles</strong>, and <strong>role preferences</strong>. It’s grounded in
           user needs and class context to improve fairness, clarity, and learning outcomes.
         </p>
-        <div className="rounded-lg overflow-hidden bg-white shadow">
+        <div className="rounded-lg overflow-hidden">
           <video
             src="/images/classcollab-walkthrough-v2.mp4"
             autoPlay
@@ -160,44 +144,43 @@ const classcollab: CaseDef = {
           Both experienced mismatched teams, unclear expectations, and uneven workloads. Alex wants strong portfolio
           projects; Rachel seeks meaningful research partnerships.
         </p>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-4">
           <Figure src="/images/classcollab-personas-rachel.png" alt="Persona: Rachel" />
           <Figure src="/images/classcollab-personas-alex.png" alt="Persona: Alex" />
         </div>
 
-        <h4 className="font-semibold mt-8">Business Opportunity Statement</h4>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-foreground/85">
-          <div className="rounded border border-border p-4">
-            <div className="text-[12px] uppercase tracking-wider text-foreground/60 mb-1">Current State</div>
-            The status quo relies on instructor assignments or self-selection, rarely considering goals, styles,
-            availability, or work preferences.
+      </Section>
+
+      <Section id="opportunity" label="DEFINE" heading="Business Opportunity Statement">
+        <div className="flex flex-col sm:flex-row items-stretch gap-3">
+          <div className="flex-1 rounded-xl bg-neutral-100 p-5">
+            <div className="text-2xl mb-3">😕</div>
+            <div className="text-[11px] uppercase tracking-[0.14em] text-foreground/50 mb-2">Current State</div>
+            <p className="text-[15px] text-foreground/80">The status quo relies on instructor assignments or self-selection, rarely considering goals, styles, availability, or work preferences.</p>
           </div>
-          <div className="rounded border border-border p-4">
-            <div className="text-[12px] uppercase tracking-wider text-foreground/60 mb-1">Gap</div>
-            Products like CATME don’t provide a balanced, transparent process matching interpersonal fit and project goals.
+          <div className="flex items-center justify-center text-foreground/30 text-xl px-1">→</div>
+          <div className="flex-1 rounded-xl bg-neutral-100 p-5">
+            <div className="text-2xl mb-3">🔍</div>
+            <div className="text-[11px] uppercase tracking-[0.14em] text-foreground/50 mb-2">Gap</div>
+            <p className="text-[15px] text-foreground/80">Products like CATME don’t provide a balanced, transparent process matching interpersonal fit and project goals.</p>
           </div>
-          <div className="rounded border border-border p-4">
-            <div className="text-[12px] uppercase tracking-wider text-foreground/60 mb-1">Solution</div>
-            Help students form better-matched teams with fair collaboration, clear roles, and stronger outcomes.
-          </div>
-          <div className="rounded border border-border p-4">
-            <div className="text-[12px] uppercase tracking-wider text-foreground/60 mb-1">Focus</div>
-            Higher-ed students in project-based courses.
-          </div>
-          <div className="rounded border border-border p-4">
-            <div className="text-[12px] uppercase tracking-wider text-foreground/60 mb-1">Success</div>
-            Better-matched teams, smoother teamwork, stronger results.
+          <div className="flex items-center justify-center text-foreground/30 text-xl px-1">→</div>
+          <div className="flex-1 rounded-xl bg-neutral-100 border-2 border-neutral-800 p-5">
+            <div className="text-2xl mb-3">✅</div>
+            <div className="text-[11px] uppercase tracking-[0.14em] text-foreground/40 mb-2">Solution</div>
+            <p className="text-[15px] text-foreground/80">Help students form better-matched teams with fair collaboration, clear roles, and stronger outcomes.</p>
           </div>
         </div>
-
-        <h4 className="font-semibold mt-8">User Outcomes & Benefits</h4>
-        <ul className="list-disc pl-5">
-          <li><strong>Align goals & interests</strong> to reduce conflict.</li>
-          <li><strong>Combine strengths</strong> so everyone can contribute.</li>
-          <li><strong>Match projects</strong> to personal/professional interests.</li>
-          <li><strong>Set expectations</strong> upfront for clarity and fairness.</li>
-          <li><strong>Save time & reduce stress</strong> by avoiding reshuffles.</li>
-        </ul>
+        <div className="grid sm:grid-cols-2 gap-3 mt-3">
+          <div className="rounded-xl bg-neutral-100 p-5">
+            <div className="text-[11px] uppercase tracking-[0.14em] text-foreground/50 mb-1">🎯 Focus</div>
+            <p className="text-[15px] text-foreground/80">Higher-ed students in project-based courses.</p>
+          </div>
+          <div className="rounded-xl bg-neutral-100 p-5">
+            <div className="text-[11px] uppercase tracking-[0.14em] text-foreground/50 mb-1">🏆 Success</div>
+            <p className="text-[15px] text-foreground/80">Better-matched teams, smoother teamwork, stronger results.</p>
+          </div>
+        </div>
       </Section>
 
       {/* VALIDATION PLAN */}
@@ -274,8 +257,13 @@ const classcollab: CaseDef = {
           alt="Design studio exercise"
           caption="Rapid exploration to widen the solution space."
         />
+      </Section>
 
-        <h4 className="font-semibold mt-6">Hypothesis Mapping</h4>
+      {/* HYPOTHESIS MAPPING */}
+      <Section id="hypothesis" label="IDEATE" heading="Hypothesis Mapping">
+        <p>
+          Mapped each feature to a concrete user and business outcome to ensure everything we built had a reason to exist.
+        </p>
         <div className="overflow-x-auto">
           <table className="min-w-[720px] w-full border-collapse">
             <thead>
@@ -320,56 +308,76 @@ const classcollab: CaseDef = {
           alt="Hypothesis prioritization canvas"
           caption="Prioritizing for value vs. risk to pick the MVP."
         />
+      </Section>
 
-        <h4 className="font-semibold mt-6">Hypothesis risks & criteria</h4>
-        <div className="overflow-x-auto">
-          <table className="min-w-[880px] w-full border-collapse">
-            <thead>
-              <tr className="border-b">
-                <th className="py-2 pr-4">#</th>
-                <th className="py-2 pr-4">Hypothesis</th>
-                <th className="py-2 pr-4">Value</th>
-                <th className="py-2 pr-4">Risk</th>
-                <th className="py-2 pr-4">Rationale</th>
-                <th className="py-2 pr-4">Risky assumption</th>
-                <th className="py-2">Invalidated if…</th>
-              </tr>
-            </thead>
-            <tbody className="text-foreground/85">
-              <tr className="border-b">
-                <td className="py-2 pr-4">1</td>
-                <td className="py-2 pr-4">
-                  Higher team satisfaction via onboarding + past project compatibility
-                </td>
-                <td className="py-2 pr-4">High</td>
-                <td className="py-2 pr-4">Low</td>
-                <td className="py-2 pr-4">Uses existing data sources to match effectively</td>
-                <td className="py-2 pr-4">Inputs predict satisfaction & experience</td>
-                <td className="py-2">Students rush/skip inputs; data doesn’t align to satisfaction</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2 pr-4">2</td>
-                <td className="py-2 pr-4">Stronger performance via prompt-based grouping</td>
-                <td className="py-2 pr-4">High</td>
-                <td className="py-2 pr-4">High</td>
-                <td className="py-2 pr-4">Needs evidence of academic lift</td>
-                <td className="py-2 pr-4">Prompts capture team skills/styles</td>
-                <td className="py-2">No measurable difference vs. random assignment</td>
-              </tr>
-            </tbody>
-          </table>
+      {/* HYPOTHESIS PRIORITIZATION */}
+      <Section id="hypothesis-priority" label="IDEATE" heading="Prioritized hypothesis & risky assumptions">
+        <p>Evaluated two candidates against value and risk to decide what to build first.</p>
+
+        <div className="grid sm:grid-cols-2 gap-4 mt-6">
+          {/* H1 — chosen */}
+          <div className="rounded-xl bg-neutral-100 border-2 border-neutral-800 p-5 flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] tracking-[0.16em] uppercase text-foreground/40">Hypothesis 1</span>
+              <span className="text-[11px] tracking-[0.12em] uppercase bg-neutral-900 text-white font-medium px-2 py-0.5 rounded-full">Selected</span>
+            </div>
+            <p className="text-[15px] leading-6">
+              Higher team satisfaction via onboarding + past project compatibility
+            </p>
+            <div className="flex gap-3 mt-auto pt-2 border-t border-neutral-200">
+              <div>
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Value</div>
+                <div className="text-[13px] font-medium">High</div>
+              </div>
+              <div>
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Risk</div>
+                <div className="text-[13px] font-medium">Low</div>
+              </div>
+              <div className="flex-1">
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Rationale</div>
+                <div className="text-[13px]">Uses existing data sources</div>
+              </div>
+            </div>
+          </div>
+
+          {/* H2 — not chosen */}
+          <div className="rounded-xl bg-neutral-100 p-5 flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] tracking-[0.16em] uppercase text-foreground/40">Hypothesis 2</span>
+            </div>
+            <p className="text-[15px] leading-6 text-foreground/70">
+              Stronger performance via prompt-based grouping
+            </p>
+            <div className="flex gap-3 mt-auto pt-2 border-t border-neutral-200">
+              <div>
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Value</div>
+                <div className="text-[13px] font-medium">High</div>
+              </div>
+              <div>
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Risk</div>
+                <div className="text-[13px] font-medium text-red-500">High</div>
+              </div>
+              <div className="flex-1">
+                <div className="text-[11px] text-foreground/40 uppercase tracking-widest">Rationale</div>
+                <div className="text-[13px] text-foreground/70">Needs evidence of academic lift</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <h4 className="font-semibold mt-6">Prioritized hypothesis</h4>
-        <p className="text-foreground/85">
-          We believe we can achieve <strong>higher course evaluations</strong> and{" "}
-          <strong>stronger program performance</strong> through well-formed teams if students join groups with{" "}
-          <strong>shared goals</strong> and <strong>interests</strong>, supported by compatibility data from{" "}
-          <strong>past projects</strong> and an <strong>onboarding survey</strong>.
-        </p>
+        <div className="mt-10 rounded-xl bg-neutral-100 p-6">
+          <div className="text-[11px] tracking-[0.16em] uppercase text-foreground/40 mb-3">Prioritized hypothesis</div>
+          <p className="text-[16px] leading-7 text-foreground/85">
+            We believe we can achieve <strong>higher course evaluations</strong> and{" "}
+            <strong>stronger program performance</strong> through well-formed teams if students join groups with{" "}
+            <strong>shared goals</strong> and <strong>interests</strong>, supported by compatibility data from{" "}
+            <strong>past projects</strong> and an <strong>onboarding survey</strong>.
+          </p>
+        </div>
 
-        <h4 className="font-semibold mt-6">Risky assumptions</h4>
-        <ul className="list-disc pl-5">
+        <h4 className="font-semibold mt-10">Risky assumptions</h4>
+        <p className="text-foreground/60 text-[15px] mt-1 mb-3">What the prioritized hypothesis depends on being true.</p>
+        <ul className="list-disc pl-5 mt-2">
           <li>Students care about being matched with compatible teammates.</li>
           <li>Students will complete onboarding.</li>
           <li>Compatibility (goals, projects, skills) drives satisfaction.</li>
@@ -386,7 +394,7 @@ const classcollab: CaseDef = {
           complete the flow.
         </p>
 
-        <div className="rounded-lg overflow-hidden bg-white shadow my-4">
+        <div className="rounded-lg overflow-hidden my-4">
           <video
             src="/images/classcollab-prototyping-walkthrough.mp4"
             autoPlay
@@ -443,7 +451,7 @@ const classcollab: CaseDef = {
 
       {/* RESULTS */}
       <Section id="results" label="RESULTS" heading="Results & next steps">
-        <div className="rounded-lg overflow-hidden bg-white shadow">
+        <div className="rounded-lg overflow-hidden">
           <video
             src="/images/classcollab-lp.mp4"
             autoPlay

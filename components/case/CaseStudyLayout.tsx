@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 /** spacing knobs */
 const GAP_BELOW_NAV = 14;     // rail/content gap under the nav at very top
 const PINNED_TOP_GAP = 20;    // rail gap from viewport top when pinned
-const BACK_ICON_OUTDENT = 18; // how far the arrow sits to the LEFT of the text start (px)
+const Back_ICON_OUTDENT = 18; // how far the arrow sits to the LEFT of the text start (px)
 
 type TocItem = { id: string; label: string };
 
@@ -15,11 +15,13 @@ type CaseLayoutProps = {
   subtitle?: string;
   date?: string;
   hero?: ReactNode;
+  meta?: ReactNode;
   stats?: Array<{ label: string; value: string }>;
   toc?: TocItem[];
   children: ReactNode;
-  /** Where BACK should take users. Defaults to the landing page. */
+  /** Where Back should take users. Defaults to the landing page. */
   backHref?: string;
+  nextProject?: { title: string; href: string; date?: string };
 };
 
 export function CaseLayout({
@@ -27,38 +29,24 @@ export function CaseLayout({
   subtitle,
   date,
   hero,
+  meta,
   stats,
   toc: tocProp,
   children,
-  backHref = "/", // always go “home” by default
+  backHref = "/", // always go "home" by default
+  nextProject,
 }: CaseLayoutProps) {
   const router = useRouter();
   const tocItems = useMemo(() => tocProp ?? [], [tocProp]);
-
-  // read live nav height so alignment always matches your header
-  const [navHeight, setNavHeight] = useState<number>(80);
-  useEffect(() => {
-    const el = document.querySelector<HTMLElement>(".portfolio-nav");
-    if (!el) return;
-    const update = () => setNavHeight(Math.round(el.getBoundingClientRect().height));
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    window.addEventListener("resize", update);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", update);
-    };
-  }, []);
 
   const [pinned, setPinned] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const topSentinelRef = useRef<HTMLDivElement | null>(null);
 
-  const railOffset = pinned ? PINNED_TOP_GAP : navHeight + GAP_BELOW_NAV;
-  const contentTopPad = navHeight + GAP_BELOW_NAV;
+  const contentTopPad = 48; // 3rem, matches homepage top padding
+  const railOffset = pinned ? PINNED_TOP_GAP : contentTopPad;
 
-  // pin/unpin + hide/show nav
+  // pin/unpin sidebar rail only (no nav manipulation)
   useEffect(() => {
     const sentinel = topSentinelRef.current;
     if (!sentinel) return;
@@ -66,47 +54,51 @@ export function CaseLayout({
       ([entry]) => {
         const atTop = entry.isIntersecting && entry.intersectionRatio > 0;
         setPinned(!atTop);
-        const html = document.documentElement;
-        if (!atTop) html.setAttribute("data-hide-nav", "1");
-        else html.removeAttribute("data-hide-nav");
       },
       { rootMargin: "-1px 0px 0px 0px", threshold: [0, 0.01] }
     );
     io.observe(sentinel);
-    return () => {
-      io.disconnect();
-      document.documentElement.removeAttribute("data-hide-nav");
-    };
+    return () => io.disconnect();
   }, []);
 
   // scroll-spy aligned to the rail top
   useEffect(() => {
     const targets = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
     if (!targets.length) return;
+    const tocIds = new Set(tocItems.map((t) => t.id));
     const io = new IntersectionObserver(
       (entries) => {
         const best = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (best?.target?.id) setActiveId(best.target.id);
+        if (!best?.target?.id) return;
+        const id = best.target.id;
+        if (tocIds.has(id)) {
+          setActiveId(id);
+        } else {
+          // Fall back to the nearest preceding TOC section
+          const allSections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
+          const idx = allSections.findIndex((s) => s.id === id);
+          for (let i = idx - 1; i >= 0; i--) {
+            if (tocIds.has(allSections[i].id)) {
+              setActiveId(allSections[i].id);
+              break;
+            }
+          }
+        }
       },
-      { rootMargin: `-${railOffset + 8}px 0px -55% 0px`, threshold: [0, 0.25, 0.5, 0.75, 1] }
+      { rootMargin: `-${railOffset + 8}px 0px -20% 0px`, threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
     targets.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [railOffset]);
+  }, [railOffset, tocItems]);
 
-  // Gray background on case pages
-  useEffect(() => {
-    document.body.dataset.casePage = "1";
-    return () => { delete document.body.dataset.casePage; };
-  }, []);
 
   const goHome = () => router.push(backHref || "/");
 
   return (
     <>
-    <main className="container-edge px-5 sm:px-8">
+    <main className="container-edge px-5 sm:px-8 page-enter">
       {/* sits directly under the nav */}
       <div ref={topSentinelRef} aria-hidden="true" className="h-px w-px" />
 
@@ -118,18 +110,18 @@ export function CaseLayout({
             <button
               type="button"
               onClick={goHome}
-              className="relative inline-flex items-center text-[13px] tracking-[0.08em] text-foreground/70 hover:text-foreground transition-colors"
+              className="relative inline-flex items-center text-[17px] text-foreground/70 hover:text-foreground transition-colors"
               aria-label="Go back"
               style={{ paddingLeft: 0 }}
             >
               <span
                 aria-hidden="true"
                 className="absolute -translate-y-1/2"
-                style={{ left: -BACK_ICON_OUTDENT, top: "50%" }}
+                style={{ left: -Back_ICON_OUTDENT, top: "50%" }}
               >
                 <ArrowLeft className="h-4 w-4" />
               </span>
-              BACK
+              Back
             </button>
 
             {tocItems.length > 0 && (
@@ -155,12 +147,8 @@ export function CaseLayout({
                             window.scrollTo({ top, behavior: "smooth" });
                           }}
                           aria-current={active ? "true" : undefined}
-                          className={`block text-[13px] ${
-                            active
-                              ? "text-foreground"
-                              : "text-foreground/55 hover:text-foreground"
-                          }`}
-                          style={{ paddingLeft: 0 }}
+                          className="block text-[17px] hover:text-foreground transition-colors"
+                          style={{ paddingLeft: 0, color: active ? "#141414" : "#888" }}
                         >
                           {t.label}
                         </a>
@@ -190,6 +178,11 @@ export function CaseLayout({
                 {hero}
               </div>
             )}
+            {meta && (
+              <div className="mt-8">
+                {meta}
+              </div>
+            )}
             {stats?.length ? (
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
                 {stats.map((s) => (
@@ -204,6 +197,25 @@ export function CaseLayout({
             {children}
           </article>
 
+          {nextProject && (
+            <div className="mt-24 pt-10 border-t border-neutral-200">
+              <p className="text-[12px] tracking-[0.18em] text-foreground/40 uppercase mb-4">Next project</p>
+              <a
+                href={nextProject.href}
+                className="group flex items-center justify-between"
+              >
+                <div>
+                  {nextProject.date && (
+                    <p className="text-[13px] text-foreground/40 mb-1">{nextProject.date}</p>
+                  )}
+                  <p className="text-[22px] sm:text-[26px] font-medium text-foreground group-hover:opacity-70 transition-opacity leading-snug">
+                    {nextProject.title} ↗
+                  </p>
+                </div>
+              </a>
+            </div>
+          )}
+
           <div className="h-12" />
         </div>
       </div>
@@ -217,7 +229,7 @@ export function CaseLayout({
           aria-label="Go back"
         >
           <ArrowLeft className="h-4 w-4" />
-          BACK
+          Back
         </button>
       </div>
     </main>
@@ -230,18 +242,20 @@ export function CaseLayout({
 export function Section({
   id,
   heading,
-  label, // small eyebrow label under the divider
+  label,
+  noRule,
   children,
 }: {
   id: string;
   heading: string;
   label?: string;
+  noRule?: boolean;
   children: ReactNode;
 }) {
   return (
     <section
       id={id}
-      className="mt-28 pt-8 border-t border-border/70 scroll-mt-[120px]"
+      className={`mt-28 pt-8 scroll-mt-[120px] ${noRule ? "" : "border-t border-neutral-200"}`}
     >
       {/* label sits just under the divider, in normal flow */}
       {label && (
@@ -255,7 +269,7 @@ export function Section({
       <h2 className="text-[22px] sm:text-[24px] lg:text-[28px] leading-[1.25] font-semibold">
         {heading}
       </h2>
-      <div className="mt-4 space-y-5 text-[15px] leading-7 text-foreground/85">
+      <div className="mt-4 space-y-5 text-[18px] leading-8 text-foreground/85">
         {children}
       </div>
     </section>
@@ -332,7 +346,7 @@ export function Figure({
   return (
     <figure className="my-6">
       <div
-        className={`rounded-lg overflow-hidden bg-white shadow-[0_1px_2px_rgba(0,0,0,.06)] ${
+        className={`rounded-lg overflow-hidden ${
           aspect !== "auto" ? "aspect-" + aspect.replace("/", "\\/") : ""
         }`}
       >

@@ -8,6 +8,7 @@ export type CaseDef = {
   subtitle?: string;
   date?: string;
   hero?: ReactNode;
+  meta?: ReactNode;
   stats?: Array<{ label: string; value: string }>;
   toc?: TocItem[];
   body?: ReactNode;
