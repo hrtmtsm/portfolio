@@ -36,9 +36,9 @@ export function CaseLayout({
   const tocItems = useMemo(() => tocProp ?? [], [tocProp]);
 
   // read live nav height so alignment always matches your header
-  const [navHeight, setNavHeight] = useState<number>(56);
+  const [navHeight, setNavHeight] = useState<number>(80);
   useEffect(() => {
-    const el = document.querySelector<HTMLElement>(".site-nav");
+    const el = document.querySelector<HTMLElement>(".portfolio-nav");
     if (!el) return;
     const update = () => setNavHeight(Math.round(el.getBoundingClientRect().height));
     update();
