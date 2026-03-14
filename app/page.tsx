@@ -17,6 +17,7 @@ const projects = [
     tags: ["UX Research", "Community Design", "Human-Centered Design", "Mobile Design"],
     href: "/projects/runbuddy",
     media: { type: "video", src: "/images/runbuddy-feature-01.mp4" },
+    mediaMaxWidth: "320px",
   },
   {
     id: "classcollab",
@@ -106,7 +107,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0 }}>
+                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0, maxWidth: p.mediaMaxWidth ?? "100%" }}>
                   <a href={p.href} style={{ display: "block" }}>
                     {p.media.type === "video" ? (
                       <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
