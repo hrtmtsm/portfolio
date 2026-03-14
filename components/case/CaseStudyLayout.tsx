@@ -96,6 +96,12 @@ export function CaseLayout({
     return () => io.disconnect();
   }, [railOffset]);
 
+  // Gray background on case pages
+  useEffect(() => {
+    document.body.dataset.casePage = "1";
+    return () => { delete document.body.dataset.casePage; };
+  }, []);
+
   const goHome = () => router.push(backHref || "/");
 
   return (
@@ -148,12 +154,12 @@ export function CaseLayout({
                             window.scrollTo({ top, behavior: "smooth" });
                           }}
                           aria-current={active ? "true" : undefined}
-                          className={`block text-[13px] tracking-[0.18em] ${
+                          className={`block text-[13px] ${
                             active
                               ? "text-foreground"
                               : "text-foreground/55 hover:text-foreground"
                           }`}
-                          style={{ letterSpacing: "0.18em", paddingLeft: 0 }}
+                          style={{ paddingLeft: 0 }}
                         >
                           {t.label}
                         </a>
@@ -179,7 +185,7 @@ export function CaseLayout({
               <p className="mt-3 text-[15px] sm:text-[16px] text-foreground/70">{subtitle}</p>
             )}
             {hero && (
-              <div className="mt-8 rounded-xl overflow-hidden bg-white shadow-[0_1px_2px_rgba(0,0,0,.06)]">
+              <div className="mt-8">
                 {hero}
               </div>
             )}

@@ -439,6 +439,9 @@ a { color: inherit; text-decoration: none; }
   .small-video { width: 80% !important; max-width: 320px !important; display: block !important; margin: 0 auto !important; border-radius: 8px; }
 }
 
+/* ── Case study page background ─────────────────────── */
+body[data-case-page="1"] { background: #f5f5f5; }
+
 /* ── Fade-up animation ───────────────────────────────── */
 .fade-up {
   opacity: 0;
