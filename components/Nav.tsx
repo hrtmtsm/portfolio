@@ -54,7 +54,11 @@ export default function Nav() {
   return (
     <>
       <nav ref={navRef} className="portfolio-nav">
-        <Link href="/" className="nav-logo">HARUTO</Link>
+        <ul className="nav-links">
+          <li><Link href="/" onClick={closeMenu}>Work</Link></li>
+          <li><a href={RESUME_URL} target="_blank" rel="noopener noreferrer">Resume</a></li>
+          <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
 
         <button
           className={`nav-hamburger${menuOpen ? " open" : ""}`}
@@ -66,11 +70,7 @@ export default function Nav() {
           <span className="bar" />
         </button>
 
-        <ul className="nav-links">
-          <li><Link href="/" onClick={closeMenu}>Work</Link></li>
-          <li><a href={RESUME_URL} target="_blank" rel="noopener noreferrer">Resume</a></li>
-          <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
+        <Link href="/" className="nav-logo">HARUTO</Link>
       </nav>
 
       {/* Slide-down mobile menu */}
