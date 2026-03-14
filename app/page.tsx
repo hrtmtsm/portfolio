@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import FadeUp from "@/components/FadeUp";
+import { useEffect, useRef } from "react";
 import Footer from "@/components/Footer";
 
 const RESUME_URL = "https://drive.google.com/file/d/1shUSDNHZXIo7zMpuYC60qpxJTx2MXX_Q/view?usp=drive_link";
@@ -38,58 +40,89 @@ const projects = [
   },
 ];
 
+function FadeInProject({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.style.opacity = "1"; el.style.transform = "translateY(0)"; } },
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{ opacity: 0, transform: "translateY(1rem)", transition: "opacity 0.4s ease, transform 0.4s ease" }}>
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="lp-page">
+    <div style={{ display: "flex", minHeight: "100vh", padding: "3rem 2rem", gap: "5rem", maxWidth: "1080px", margin: "0 auto" }}>
+
       {/* Left sidebar */}
-      <aside className="lp-sidebar">
-        <Link href="/" className="lp-sidebar-brand">Haruto</Link>
-        <nav className="lp-sidebar-nav">
-          <Link href="/">Work</Link>
-          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">Resume</a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <aside style={{ width: "160px", flexShrink: 0, position: "sticky", top: "3rem", height: "fit-content", alignSelf: "flex-start" }}>
+        <Link href="/" style={{ display: "block", fontSize: "0.875rem", fontWeight: 500, color: "#141414", marginBottom: "2rem" }}>
+          Haruto
+        </Link>
+        <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+          <Link href="/" style={{ fontSize: "0.875rem", color: "#141414", opacity: 0.55 }}>Work</Link>
+          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.875rem", color: "#141414", opacity: 0.55 }}>Resume</a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.875rem", color: "#141414", opacity: 0.55 }}>LinkedIn</a>
         </nav>
       </aside>
 
       {/* Main content */}
-      <div className="lp-main">
+      <div style={{ flex: 1, minWidth: 0 }}>
         {/* Intro */}
-        <section className="lp-intro">
-          <h1 className="lp-heading">Haruto Matsushima</h1>
-          <p className="lp-bio">
+        <section style={{ marginBottom: "4rem" }}>
+          <h1 style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#141414", marginBottom: "1.25rem" }}>
+            Haruto Matsushima
+          </h1>
+          <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "#555", maxWidth: "540px" }}>
             Product designer and engineer. I design bilingual experiences bridging Japan and the
             U.S. — grounded in research, shaped by empathy, and built to work.
           </p>
         </section>
 
         {/* Projects */}
-        <div className="lp-projects">
-          {projects.map((p) => (
-            <FadeUp key={p.id}>
-              <div className="lp-project" id={p.id}>
-                <div className="lp-project-header">
-                  <span className="lp-project-label">{p.label}</span>
-                  <a href={p.href} className="lp-project-title">{p.title} ↗</a>
-                  <p className="lp-project-desc">{p.description}</p>
-                  <div className="lp-project-tags">
-                    {p.tags.map((t) => <span key={t}>{t}</span>)}
-                  </div>
+        <div>
+          {projects.map((p, i) => (
+            <FadeInProject key={p.id}>
+              <div id={p.id} style={{ padding: "3rem 0", borderTop: i === 0 ? "none" : "1px solid #e8e8e8" }}>
+                <span style={{ display: "block", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#141414", opacity: 0.45, marginBottom: "0.5rem" }}>
+                  {p.label}
+                </span>
+                <a href={p.href} style={{ display: "block", fontSize: "1.2rem", fontWeight: 600, color: "#141414", marginBottom: "0.75rem" }}>
+                  {p.title} ↗
+                </a>
+                <p style={{ fontSize: "0.9375rem", lineHeight: 1.7, color: "#555", marginBottom: "1rem" }}>
+                  {p.description}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", marginBottom: "1.5rem" }}>
+                  {p.tags.map((t) => (
+                    <span key={t} style={{ fontSize: "0.75rem", padding: "0.25rem 0.625rem", background: "#f0f0f0", borderRadius: "999px", color: "#555" }}>
+                      {t}
+                    </span>
+                  ))}
                 </div>
-                <div className="lp-project-media">
-                  <a href={p.href}>
+                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0 }}>
+                  <a href={p.href} style={{ display: "block" }}>
                     {p.media.type === "video" ? (
-                      // eslint-disable-next-line jsx-a11y/media-has-caption
-                      <video autoPlay loop muted playsInline>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
                         <source src={p.media.src} type="video/mp4" />
                       </video>
                     ) : (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={p.media.src} alt={p.title} />
+                      <img src={p.media.src} alt={p.title} style={{ width: "100%", height: "auto", display: "block" }} />
                     )}
                   </a>
                 </div>
               </div>
-            </FadeUp>
+            </FadeInProject>
           ))}
         </div>
 
