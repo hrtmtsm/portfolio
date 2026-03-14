@@ -111,7 +111,7 @@ export function CaseLayout({
 
       <div className="grid lg:grid-cols-[220px_minmax(0,1fr)] gap-8 lg:gap-12">
         {/* LEFT rail */}
-        <aside className="hidden lg:block">
+        <aside className="hidden lg:block" style={{ paddingTop: contentTopPad }}>
           <div className="sticky" style={{ top: railOffset }}>
             {/* Back text aligns to container edge; arrow is outdented to the left */}
             <button
