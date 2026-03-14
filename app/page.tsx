@@ -106,7 +106,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0, maxWidth: p.media.type === "video" ? "360px" : "100%" }}>
+                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0 }}>
                   <a href={p.href} style={{ display: "block" }}>
                     {p.media.type === "video" ? (
                       <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
