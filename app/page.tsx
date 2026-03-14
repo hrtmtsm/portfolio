@@ -61,7 +61,7 @@ function FadeInProject({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <div style={{ display: "flex", minHeight: "100vh", padding: "3rem 2rem", gap: "5rem", maxWidth: "1080px", margin: "0 auto" }}>
+    <div style={{ display: "flex", minHeight: "100vh", padding: "3rem 2rem", gap: "3rem" }}>
 
       {/* Left sidebar */}
       <aside style={{ width: "160px", flexShrink: 0, position: "sticky", top: "3rem", height: "fit-content", alignSelf: "flex-start" }}>
@@ -76,7 +76,7 @@ export default function Home() {
       </aside>
 
       {/* Main content */}
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div style={{ flex: 1, minWidth: 0, maxWidth: "680px" }}>
         {/* Intro */}
         <section style={{ marginBottom: "4rem" }}>
           <h1 style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#141414", marginBottom: "1.25rem" }}>
