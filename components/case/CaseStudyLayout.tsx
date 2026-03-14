@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import Nav from "@/components/Nav";
 
 /** spacing knobs */
 const GAP_BELOW_NAV = 14;     // rail/content gap under the nav at very top
@@ -105,6 +106,8 @@ export function CaseLayout({
   const goHome = () => router.push(backHref || "/");
 
   return (
+    <>
+    <Nav />
     <main className="container-edge px-5 sm:px-8">
       {/* sits directly under the nav */}
       <div ref={topSentinelRef} aria-hidden="true" className="h-px w-px" />
@@ -220,6 +223,7 @@ export function CaseLayout({
         </button>
       </div>
     </main>
+    </>
   );
 }
 

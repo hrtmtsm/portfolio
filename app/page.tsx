@@ -1,11 +1,14 @@
-import HeroCard from "@/components/HeroCard";
+import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import Footer from "@/components/Footer";
+
+const RESUME_URL = "https://drive.google.com/file/d/1shUSDNHZXIo7zMpuYC60qpxJTx2MXX_Q/view?usp=drive_link";
+const LINKEDIN_URL = "https://www.linkedin.com/in/hrtmtsm/";
 
 const projects = [
   {
     id: "runbuddy",
-    label: "Runbuddy",
+    label: "RunBuddy",
     title: "More Than Miles: Run With People Who Match Your Vibe",
     description:
       "Helping runners find their people by surfacing compatibility, because long-term motivation comes from connection.",
@@ -18,7 +21,7 @@ const projects = [
     label: "ClassCollab",
     title: "Forming Compatible Student Teams for Better Outcomes",
     description:
-      "Solving the problem of team mismatch in academic group projects through research-backed design, behavior-driven validation, and iterative prototyping.",
+      "Solving the problem of team mismatch in academic group projects through research-backed design and iterative prototyping.",
     tags: ["Design for Startups", "Lean UX", "UX Research", "Web Design"],
     href: "/projects/classcollab",
     media: { type: "video", src: "/images/classcollab-walkthrough-v2.mp4" },
@@ -37,55 +40,61 @@ const projects = [
 
 export default function Home() {
   return (
-    <>
-      {/* Hero */}
-      <section id="hero-bg">
-        <HeroCard />
-      </section>
+    <div className="lp-page">
+      {/* Left sidebar */}
+      <aside className="lp-sidebar">
+        <Link href="/" className="lp-sidebar-brand">Haruto</Link>
+        <nav className="lp-sidebar-nav">
+          <Link href="/">Work</Link>
+          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">Resume</a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+      </aside>
 
-      {/* Projects */}
-      {projects.map((project, i) => (
-        <FadeUp key={project.id}>
-          <section id={project.id} className="project-slide">
-            <div className="project-wrapper">
-              <div className="project-info">
-                <p className="project-label">{project.label}</p>
-                <h2 className="project-title">{project.title}</h2>
-                <p className="project-desc">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((t) => <span key={t}>{t}</span>)}
+      {/* Main content */}
+      <div className="lp-main">
+        {/* Intro */}
+        <section className="lp-intro">
+          <h1 className="lp-heading">Haruto Matsushima</h1>
+          <p className="lp-bio">
+            Product designer and engineer. I design bilingual experiences bridging Japan and the
+            U.S. — grounded in research, shaped by empathy, and built to work.
+          </p>
+        </section>
+
+        {/* Projects */}
+        <div className="lp-projects">
+          {projects.map((p) => (
+            <FadeUp key={p.id}>
+              <div className="lp-project" id={p.id}>
+                <div className="lp-project-header">
+                  <span className="lp-project-label">{p.label}</span>
+                  <a href={p.href} className="lp-project-title">{p.title} ↗</a>
+                  <p className="lp-project-desc">{p.description}</p>
+                  <div className="lp-project-tags">
+                    {p.tags.map((t) => <span key={t}>{t}</span>)}
+                  </div>
                 </div>
-                <a href={project.href} className="btn-case">View Case Study</a>
+                <div className="lp-project-media">
+                  <a href={p.href}>
+                    {p.media.type === "video" ? (
+                      // eslint-disable-next-line jsx-a11y/media-has-caption
+                      <video autoPlay loop muted playsInline>
+                        <source src={p.media.src} type="video/mp4" />
+                      </video>
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={p.media.src} alt={p.title} />
+                    )}
+                  </a>
+                </div>
               </div>
+            </FadeUp>
+          ))}
+        </div>
 
-              <div className="project-media-wrap">
-                <a href={project.href}>
-                  {project.media.type === "video" ? (
-                    <video
-                      className={`project-media${i === 0 ? " small-video" : ""}`}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    >
-                      <source src={project.media.src} type="video/mp4" />
-                    </video>
-                  ) : (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={project.media.src}
-                      className="project-media"
-                      alt={project.title}
-                    />
-                  )}
-                </a>
-              </div>
-            </div>
-          </section>
-        </FadeUp>
-      ))}
-
-      <Footer />
-    </>
+        <Footer />
+      </div>
+    </div>
   );
 }
