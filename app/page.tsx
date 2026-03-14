@@ -65,9 +65,6 @@ export default function Home() {
 
       {/* Left sidebar */}
       <aside style={{ width: "160px", flexShrink: 0, position: "sticky", top: "3rem", height: "fit-content", alignSelf: "flex-start" }}>
-        <Link href="/" style={{ display: "block", fontSize: "0.875rem", fontWeight: 500, color: "#141414", marginBottom: "2rem" }}>
-          Haruto
-        </Link>
         <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           <Link href="/" style={{ fontSize: "0.875rem", color: "#141414", opacity: 0.55 }}>Work</Link>
           <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.875rem", color: "#141414", opacity: 0.55 }}>Resume</a>
