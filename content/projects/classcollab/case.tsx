@@ -116,7 +116,7 @@ const classcollab: CaseDef = {
         </p>
         <div className="rounded-lg overflow-hidden bg-white shadow">
           <video
-            src="/videos/classcollab-walkthrough-v2.mp4"
+            src="/images/classcollab-walkthrough-v2.mp4"
             autoPlay
             loop
             muted
@@ -388,7 +388,7 @@ const classcollab: CaseDef = {
 
         <div className="rounded-lg overflow-hidden bg-white shadow my-4">
           <video
-            src="/videos/classcollab-prototyping-walkthrough.mp4"
+            src="/images/classcollab-prototyping-walkthrough.mp4"
             autoPlay
             loop
             muted
@@ -445,7 +445,7 @@ const classcollab: CaseDef = {
       <Section id="results" label="RESULTS" heading="Results & next steps">
         <div className="rounded-lg overflow-hidden bg-white shadow">
           <video
-            src="/videos/classcollab-lp.mp4"
+            src="/images/classcollab-lp.mp4"
             autoPlay
             loop
             muted

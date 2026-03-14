@@ -134,7 +134,7 @@ const runbuddy: CaseDef = {
           </div>
           <div className="rounded-lg overflow-hidden bg-white shadow">
             <video
-              src="/videos/runbuddy-feature-01.mp4"
+              src="/images/runbuddy-feature-01.mp4"
               autoPlay
               loop
               muted
@@ -147,7 +147,7 @@ const runbuddy: CaseDef = {
         <div className="grid lg:grid-cols-2 gap-6 mt-6">
           <div className="rounded-lg overflow-hidden bg-white shadow order-2 lg:order-1">
             <video
-              src="/videos/runbuddy-feature-02.mp4"
+              src="/images/runbuddy-feature-02.mp4"
               autoPlay
               loop
               muted
@@ -174,7 +174,7 @@ const runbuddy: CaseDef = {
           </div>
           <div className="rounded-lg overflow-hidden bg-white shadow">
             <video
-              src="/videos/runbuddy-feature-03.mp4"
+              src="/images/runbuddy-feature-03.mp4"
               autoPlay
               loop
               muted
