@@ -70,7 +70,6 @@ export default function Nav() {
           <span className="bar" />
         </button>
 
-        <Link href="/" className="nav-logo">HARUTO</Link>
       </nav>
 
       {/* Slide-down mobile menu */}
