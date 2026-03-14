@@ -92,7 +92,7 @@ export default function Home() {
         <div>
           {projects.map((p, i) => (
             <FadeInProject key={p.id}>
-              <div id={p.id} style={{ padding: "3rem 0", borderTop: i === 0 ? "none" : "1px solid #e8e8e8" }}>
+              <div style={{ padding: "3rem 0", borderTop: i === 0 ? "none" : "1px solid #e8e8e8" }}>
                 <span style={{ display: "block", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#141414", opacity: 0.45, marginBottom: "0.5rem" }}>
                   {p.label}
                 </span>
@@ -109,7 +109,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0 }}>
+                <div style={{ overflow: "hidden", borderRadius: "0.5rem", lineHeight: 0, maxWidth: p.media.type === "video" ? "360px" : "100%" }}>
                   <a href={p.href} style={{ display: "block" }}>
                     {p.media.type === "video" ? (
                       <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
