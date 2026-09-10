@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Footer from "@/components/Footer";
 
-const RESUME_URL = "https://drive.google.com/file/d/1i8OwqQ0vUZw6DcAnaF9Klt2JmNesoaEB/view?usp=sharing";
+const RESUME_URL = "https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing";
 const LINKEDIN_URL = "https://www.linkedin.com/in/hrtmtsm/";
 
 const projects = [
@@ -134,17 +134,23 @@ export default function Home() {
       }}>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: "0.75rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#999", marginBottom: "0.75rem" }}>Current</div>
-          <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "#444" }}>
-            Building <a href="https://www.trymutua.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Mutua</a> — where serious language partners meet
+          <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "#444", margin: 0 }}>
+            Product Designer at{" "}
+            <a href="https://biz.moneyforward.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Money Forward</a>
+          </p>
+          <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "#444", marginTop: "0.25rem" }}>
+            Building{" "}
+            <a href="https://waddle-lbnu.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Waddle</a>{" "}
+            and{" "}
+            <a href="https://www.trymutua.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Mutua</a>{" "}
+            on the side.
           </p>
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: "0.75rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#999", marginBottom: "0.75rem" }}>Past</div>
+          <div style={{ fontSize: "0.75rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#999", marginBottom: "0.75rem" }}>Previously</div>
           <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "#444", margin: 0 }}>
-            Interned at{" "}
-            <a href="https://marketeqdigital.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Marketeq Digital</a>{" "}
-            and{" "}
-            <a href="https://biz.moneyforward.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>MoneyForward</a>
+            UX Research &amp; Design at{" "}
+            <a href="https://marketeqdigital.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", textUnderlineOffset: "3px", color: "#141414" }}>Marketeq Digital</a>
           </p>
           <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "#444", marginTop: "0.25rem" }}>
             MS in HCI, DePaul University

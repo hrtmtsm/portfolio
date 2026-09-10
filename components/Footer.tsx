@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 const links = [
   { href: 'https://www.linkedin.com/in/hrtmtsm/', label: 'LinkedIn' },
-  { href: 'https://drive.google.com/file/d/1shUSDNHZXIo7zMpuYC60qpxJTx2MXX_Q/view?usp=drive_link', label: 'Resume' },
+  { href: 'https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing', label: 'Resume' },
   { href: 'mailto:hrt861.dly@gmail.com', label: 'Email' },
 ];
 

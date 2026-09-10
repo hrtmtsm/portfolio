@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const RESUME_URL = "https://drive.google.com/file/d/1shUSDNHZXIo7zMpuYC60qpxJTx2MXX_Q/view?usp=drive_link";
+const RESUME_URL = "https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing";
 const LINKEDIN_URL = "https://www.linkedin.com/in/hrtmtsm/";
 
 export default function Nav() {
