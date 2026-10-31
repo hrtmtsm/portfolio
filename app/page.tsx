@@ -47,14 +47,15 @@ export default function Home() {
 
       {/* Top nav */}
       <nav className="lp-nav" style={{
-        display: "flex", alignItems: "center",
-        gap: "2rem",
+        display: "flex", alignItems: "center", flexWrap: "wrap",
+        columnGap: "2rem", rowGap: "0.75rem",
         paddingTop: "1.25rem", paddingBottom: "1.25rem",
         paddingLeft: PAD, paddingRight: PAD,
         borderBottom: "1px solid #f0f0f0",
       }}>
         <Link href="/" style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#141414" }}>Work</Link>
-        <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>Resume</a>
+        <a href={siteLinks.resume} download="Haruto-Matsushima-Resume-EN.pdf" hrefLang="en" style={{ fontSize: "1.0625rem", color: "#666" }}>Resume (EN)</a>
+        <a href={siteLinks.resumeJapanese} download="Haruto-Matsushima-Resume-JA.pdf" hrefLang="ja" lang="ja" style={{ fontSize: "1.0625rem", color: "#666" }}>Resume (日本語)</a>
         <a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>LinkedIn</a>
       </nav>
 

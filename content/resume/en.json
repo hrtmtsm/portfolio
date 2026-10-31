@@ -1,0 +1,99 @@
+{
+  "name": "Haruto Matsushima",
+  "email": "hrt861.dly@gmail.com",
+  "phone": "070-9090-6771",
+  "website": "hrtmtsm.com",
+  "linkedin": "linkedin.com/in/hrtmtsm",
+  "language": "en",
+  "role": "Product Designer",
+  "summary": "Product designer with an M.S. in Human-Computer Interaction and experience in product discovery, usability testing, and interaction design. Turns research insights into testable prototypes and implementation-ready designs.",
+  "sections": [
+    "EXPERIENCE",
+    "SELECTED ACADEMIC PROJECTS",
+    "EDUCATION",
+    "SKILLS"
+  ],
+  "experience": [
+    {
+      "title": "Product Designer",
+      "company": "Money Forward",
+      "location": "Tokyo, Japan",
+      "dates": "Apr 2026 - Present",
+      "bullets": [
+        "Conducted 20+ usability tests and 5+ user interviews for new-product discovery to identify user needs and validate product hypotheses.",
+        "Used AI-assisted coded prototypes to explore concepts, test assumptions, and iterate on product experiences."
+      ]
+    },
+    {
+      "title": "Product Designer Intern",
+      "company": "Money Forward",
+      "location": "Tokyo, Japan",
+      "dates": "Nov 2025 - Mar 2026",
+      "bullets": [
+        "Evaluated Figma design system components and proposed improvements aligned with engineering constraints.",
+        "Designed pagination concepts and collaborated with PMs and engineers on implementation-ready handoff.",
+        "Mapped key user journeys and created low-fidelity flows for a workplace stress-check application, considering regulatory constraints."
+      ]
+    },
+    {
+      "title": "UX Researcher / Designer Intern",
+      "company": "Marketeq Digital",
+      "location": "Miami, FL / Remote",
+      "dates": "Sep 2025 - Nov 2025",
+      "bullets": [
+        "Analyzed competitor and user experiences to inform content structure and interface design for a talent marketplace contract flow.",
+        "Translated research findings into wireframes focused on clarity and confidence during decision-making."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "ClassCollab",
+      "subtitle": "Team formation for student projects",
+      "dates": "Apr - Jun 2025",
+      "bullets": [
+        "Designed and tested a team formation tool; a landing page MVP recorded a 60% click-through rate, followed by prototype testing with seven graduate students.",
+        "Refined onboarding, team previews, and group overviews; the tested prototype received an average System Usability Scale (SUS) score of 82.5."
+      ]
+    },
+    {
+      "title": "RunBuddy",
+      "subtitle": "Finding compatible running groups",
+      "dates": "Apr - Jun 2025",
+      "bullets": [
+        "Used surveys, interviews, and affinity mapping to identify social and logistical barriers to joining running groups.",
+        "Designed a Figma mobile prototype and Framer walkthrough, then iterated through user validation to clarify group fit and joining flows."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "title": "DePaul University",
+      "detail": "M.S., Human-Computer Interaction | Chicago, IL",
+      "dates": "Jan 2024 - Jun 2025"
+    },
+    {
+      "title": "Chuo University",
+      "detail": "Bachelor of Laws | Tokyo, Japan",
+      "dates": "Apr 2018 - Sep 2022"
+    }
+  ],
+  "designSkills": [
+    "User research",
+    "Usability testing",
+    "Interaction design",
+    "Information architecture",
+    "Wireframing",
+    "Prototyping",
+    "Lean UX"
+  ],
+  "tools": [
+    "Figma / Framer / Axure",
+    "Adobe XD / Illustrator / Photoshop",
+    "HTML / CSS / JavaScript / Swift"
+  ],
+  "languages": [
+    "Japanese - Native",
+    "English - Working proficiency"
+  ]
+}
