@@ -30,7 +30,7 @@ pdfmetrics.registerFontFamily('Japanese', normal='Japanese', bold='Japanese', it
 INK = colors.HexColor('#151515')
 BODY = colors.HexColor('#4C4C4C')
 MUTED = colors.HexColor('#696969')
-ACCENT = colors.HexColor('#7460C8')
+ACCENT = colors.HexColor('#666666')
 PAGE_W, PAGE_H = A4
 MARGIN, TOP, BOTTOM = 38, 36, 34
 SIDE_W, GUTTER = 161, 28
