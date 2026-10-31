@@ -139,7 +139,7 @@ const runbuddy: CaseDef = {
           <div className="flex-1">
             <h4 className="font-semibold mb-2">Feature 2 — Group Exploration</h4>
             <p className="text-foreground/80">
-              Browse local running groups with tags like "beginner-friendly," "social," or "goal-focused"
+              Browse local running groups with tags like &quot;beginner-friendly,&quot; &quot;social,&quot; or &quot;goal-focused&quot;
               to quickly find one that fits your style.
             </p>
           </div>
@@ -181,18 +181,18 @@ const runbuddy: CaseDef = {
 
         <div className="space-y-6 text-foreground/80 mt-8">
           <blockquote className="border-l-2 pl-4">
-            "Building social connections helps people keep running. When runners form friendships and feel
-            supported, they are more likely to stay motivated and stick with the habit."
+            &quot;Building social connections helps people keep running. When runners form friendships and feel
+            supported, they are more likely to stay motivated and stick with the habit.&quot;
             <span className="text-muted"> — Bogina, n.d.</span>
           </blockquote>
           <blockquote className="border-l-2 pl-4">
-            "Clear structure and a welcoming group encourage people to join and stay. Scheduled runs, clear expectations,
-            and emotional safety make runners feel more comfortable and committed."
+            &quot;Clear structure and a welcoming group encourage people to join and stay. Scheduled runs, clear expectations,
+            and emotional safety make runners feel more comfortable and committed.&quot;
             <span className="text-muted"> — Bogina, n.d. &amp; Yang et&nbsp;al., 2022</span>
           </blockquote>
           <blockquote className="border-l-2 pl-4">
-            "Too much uncertainty can stop new runners from joining. When people don’t know what to expect or worry
-            about fitting in, they are less likely to join."
+            &quot;Too much uncertainty can stop new runners from joining. When people don’t know what to expect or worry
+            about fitting in, they are less likely to join.&quot;
             <span className="text-muted"> — Bogina, n.d.</span>
           </blockquote>
         </div>

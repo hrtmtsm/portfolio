@@ -1,6 +1,6 @@
 // lib/cases.ts
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const registry: Record<string, () => Promise<{ default: any }>> = {
+import type { CaseDef } from "@/types/case";
+export const registry: Record<string, () => Promise<{ default: CaseDef }>> = {
   runbuddy: () => import("@/content/projects/runbuddy/case"),
   classcollab: () => import("@/content/projects/classcollab/case"),
   iowa: () => import("@/content/projects/iowa/case"),

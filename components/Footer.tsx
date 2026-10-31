@@ -1,14 +1,7 @@
 // components/Footer.tsx
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
-const links = [
-  { href: 'https://www.linkedin.com/in/hrtmtsm/', label: 'LinkedIn' },
-  { href: 'https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing', label: 'Resume' },
-  { href: 'mailto:hrt861.dly@gmail.com', label: 'Email' },
-];
 
 function ordinal(n: number) {
   const s = ['th', 'st', 'nd', 'rd'], v = n % 100;

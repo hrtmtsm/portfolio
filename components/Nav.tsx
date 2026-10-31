@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const RESUME_URL = "https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing";
-const LINKEDIN_URL = "https://www.linkedin.com/in/hrtmtsm/";
+import { siteLinks } from "@/content/site";
+
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,8 +56,8 @@ export default function Nav() {
       <nav ref={navRef} className="portfolio-nav">
         <ul className="nav-links">
           <li><Link href="/" onClick={closeMenu}>Work</Link></li>
-          <li><a href={RESUME_URL} target="_blank" rel="noopener noreferrer">Resume</a></li>
-          <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href={siteLinks.resume} target="_blank" rel="noopener noreferrer">Resume</a></li>
+          <li><a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
 
         <button
@@ -76,8 +76,8 @@ export default function Nav() {
       <div className={`slide-menu${menuOpen ? " show" : ""}`}>
         <div className="slide-menu-content">
           <Link href="/" onClick={closeMenu}>WORK</Link>
-          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>RESUME</a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>LINKEDIN</a>
+          <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>RESUME</a>
+          <a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>LINKEDIN</a>
         </div>
       </div>
       {menuOpen && <div className="menu-overlay show" onClick={closeMenu} />}

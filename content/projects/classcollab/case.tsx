@@ -1,6 +1,6 @@
 // content/projects/classcollab/case.tsx
 import type { CaseDef } from "@/types/case";
-import { Section, Figure, Overview } from "@/components/case/CaseStudyLayout";
+import { Section, Figure } from "@/components/case/CaseStudyLayout";
 
 const classcollab: CaseDef = {
   slug: "classcollab",

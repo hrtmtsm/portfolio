@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 /** spacing knobs */
-const GAP_BELOW_NAV = 14;     // rail/content gap under the nav at very top
 const PINNED_TOP_GAP = 20;    // rail gap from viewport top when pinned
 const Back_ICON_OUTDENT = 18; // how far the arrow sits to the LEFT of the text start (px)
 

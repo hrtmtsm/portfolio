@@ -1,43 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import Footer from "@/components/Footer";
-
-const RESUME_URL = "https://drive.google.com/file/d/1f1hAuTuB4-BPJfjMl5ZNXANZngnRllw1/view?usp=sharing";
-const LINKEDIN_URL = "https://www.linkedin.com/in/hrtmtsm/";
-
-const projects = [
-  {
-    id: "runbuddy",
-    date: "Case Study • Spring 2025",
-    title: "RunBuddy — Reducing the Friction of Finding Running Partners",
-    description:
-      "Researched why runners train alone even when they'd prefer company — then designed a compatibility-matching system that lowers the social friction of joining a group.",
-    href: "/projects/runbuddy",
-    media: { type: "video", src: "/images/runbuddy-feature-01.mp4" },
-    mediaMaxWidth: "320px",
-  },
-  {
-    id: "classcollab",
-    date: "Case Study • Spring 2025",
-    title: "ClassCollab: Better Team Formation for Better Academic Outcomes",
-    description:
-      "Investigated why student group projects fail before they start — then used Lean UX to design a team formation flow that matches students by goals, working style, and availability.",
-    href: "/projects/classcollab",
-    media: { type: "video", src: "/images/classcollab-walkthrough-v2.mp4" },
-    mediaMaxWidth: "760px",
-  },
-  {
-    id: "iowa",
-    date: "Case Study • Summer 2024",
-    title: "Improving Usability on the Iowa Cubs Website",
-    description:
-      "Enhanced the fan experience through heuristic evaluations and real-user testing to uncover and solve key usability issues.",
-    href: "/projects/iowa",
-    media: { type: "image", src: "/images/iowa-website-screenshot.png" },
-    mediaMaxWidth: "760px",
-  },
-];
+import { siteLinks } from "@/content/site";
+import { projects } from "@/content/projects";
 
 function FadeInProject({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -86,9 +53,9 @@ export default function Home() {
         paddingLeft: PAD, paddingRight: PAD,
         borderBottom: "1px solid #f0f0f0",
       }}>
-        <a href="/" style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#141414" }}>Work</a>
-        <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>Resume</a>
-        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>LinkedIn</a>
+        <Link href="/" style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#141414" }}>Work</Link>
+        <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>Resume</a>
+        <a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>LinkedIn</a>
       </nav>
 
       {/* Hero */}

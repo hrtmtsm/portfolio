@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Haruto Matsushima — Portfolio
 
-## Getting Started
+Next.js App Router portfolio with React and TypeScript.
 
-First, run the development server:
+## Development
 
-```bash
+Use Node.js 20.9 or later (Node.js 22 LTS recommended).
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```sh
+npm run lint
+npx tsc --noEmit
+npm run build
+npm start
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to edit
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/`: routes, page composition and global styles.
+- `components/`: shared display components and case study layout.
+- `content/site.ts`: shared Resume and LinkedIn destinations.
+- `content/projects/index.ts`: homepage project summaries.
+- `content/projects/<slug>/case.tsx`: full case study content.
+- `lib/cases.ts`: case study loader registry.
+- `types/case.ts`: shared case study schema.
+- `public/images/`: canonical image and video assets.
+- `public/resume.pdf`: versioned resume, served at `/resume.pdf`. Replace this file to update it.
 
-## Learn More
+The historical standalone HTML, CSS and duplicate root asset directory have been removed. Legacy `/projects/project-*.html` URLs redirect to the current case study routes through `next.config.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+To add a project, create its case study, register its loader, add its homepage summary, and update the next-project navigation in `app/projects/[slug]/page.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Commit `package-lock.json` when dependencies change so local and deployment installs use the same versions.
