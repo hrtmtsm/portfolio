@@ -56,8 +56,8 @@ export default function Nav() {
       <nav ref={navRef} className="portfolio-nav">
         <ul className="nav-links">
           <li><Link href="/" onClick={closeMenu}>Work</Link></li>
-          <li><a href={siteLinks.resume} download="Haruto-Matsushima-Resume-EN.pdf" hrefLang="en">Resume (EN)</a></li>
-          <li><a href={siteLinks.resumeJapanese} download="Haruto-Matsushima-Resume-JA.pdf" hrefLang="ja" lang="ja">Resume (日本語)</a></li>
+          <li><a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" hrefLang="en">Resume (EN)</a></li>
+          <li><a href={siteLinks.resumeJapanese} target="_blank" rel="noopener noreferrer" hrefLang="ja" lang="ja">Resume (日本語)</a></li>
           <li><a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
 
@@ -77,8 +77,8 @@ export default function Nav() {
       <div className={`slide-menu${menuOpen ? " show" : ""}`}>
         <div className="slide-menu-content">
           <Link href="/" onClick={closeMenu}>WORK</Link>
-          <a href={siteLinks.resume} download="Haruto-Matsushima-Resume-EN.pdf" hrefLang="en" onClick={closeMenu}>RESUME (EN)</a>
-          <a href={siteLinks.resumeJapanese} download="Haruto-Matsushima-Resume-JA.pdf" hrefLang="ja" lang="ja" onClick={closeMenu}>RESUME (日本語)</a>
+          <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" hrefLang="en" onClick={closeMenu}>RESUME (EN)</a>
+          <a href={siteLinks.resumeJapanese} target="_blank" rel="noopener noreferrer" hrefLang="ja" lang="ja" onClick={closeMenu}>RESUME (日本語)</a>
           <a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>LINKEDIN</a>
         </div>
       </div>
