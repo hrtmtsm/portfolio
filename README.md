@@ -29,7 +29,7 @@ npm start
 - `types/case.ts`: shared case study schema.
 - `public/images/`: canonical image and video assets.
 - `content/resume/en.json` and `ja.json`: editable resume content (English / Japanese).
-- `public/resume.pdf` and `public/resume-ja.pdf`: generated two-column, one-page PDF originals. Navigation opens the Google Drive copies configured in `content/site.ts`, where visitors can preview and download them.
+- `public/resume.pdf` and `public/resume-ja.pdf`: generated two-column, one-page PDF originals. Navigation opens only the English Google Drive copy configured in `content/site.ts`. The Japanese original is retained for future use.
 - `scripts/build_resumes.py`: reproducible PDF layout and generation.
 
 The historical standalone HTML, CSS and duplicate root asset directory have been removed. Legacy `/projects/project-*.html` URLs redirect to the current case study routes through `next.config.ts`.

@@ -54,8 +54,7 @@ export default function Home() {
         borderBottom: "1px solid #f0f0f0",
       }}>
         <Link href="/" style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#141414" }}>Work</Link>
-        <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" hrefLang="en" style={{ fontSize: "1.0625rem", color: "#666" }}>Resume (EN)</a>
-        <a href={siteLinks.resumeJapanese} target="_blank" rel="noopener noreferrer" hrefLang="ja" lang="ja" style={{ fontSize: "1.0625rem", color: "#666" }}>Resume (日本語)</a>
+        <a href={siteLinks.resume} target="_blank" rel="noopener noreferrer" hrefLang="en" style={{ fontSize: "1.0625rem", color: "#666" }}>Resume</a>
         <a href={siteLinks.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "1.0625rem", color: "#aaa" }}>LinkedIn</a>
       </nav>
 
