@@ -29,7 +29,7 @@ npm start
 - `types/case.ts`: shared case study schema.
 - `public/images/`: canonical image and video assets.
 - `content/resume/en.json` and `ja.json`: editable resume content (English / Japanese).
-- `public/resume.pdf` and `public/resume-ja.pdf`: generated two-column, one-page PDFs, opened in a new tab from the navigation; visitors can save either PDF from the viewer.
+- `public/resume.pdf` and `public/resume-ja.pdf`: generated two-column, one-page PDF originals. Navigation opens the Google Drive copies configured in `content/site.ts`, where visitors can preview and download them.
 - `scripts/build_resumes.py`: reproducible PDF layout and generation.
 
 The historical standalone HTML, CSS and duplicate root asset directory have been removed. Legacy `/projects/project-*.html` URLs redirect to the current case study routes through `next.config.ts`.
@@ -53,3 +53,5 @@ python3 -m venv .venv
 The Latin font directory must contain `LiberationSans-Regular.ttf` and `LiberationSans-Bold.ttf`. Use a licensed TrueType font with Japanese coverage for Japanese content (e.g. Arial Unicode on macOS). Fonts are embedded as subsets; do not commit local font files. Review both rendered PDFs after regeneration and commit the JSON, script and PDF changes together.
 
 The Japanese PDF is a concise career summary rather than a prescribed Japanese 履歴書 form.
+
+After regenerating, replace the English and Japanese PDF contents in their existing Google Drive files (use Manage versions / Upload new version) to preserve file IDs and public links. Both should remain read-only for anyone with the link. Do not create a new Drive file on every edit. If a file ID changes, update `content/site.ts` once; keep the PDF originals in Git.
